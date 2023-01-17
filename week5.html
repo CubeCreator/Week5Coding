@@ -49,34 +49,6 @@
 </head>
 <body>
     Week 5 Coding Assignment
-
-    <div class = "dropdown"></div>
-        <button onclick = "myFunction()" class="menubtn">MenuButton</button>
-        <div id="myMenu" class = "menu-content">
-            <a href = "1">Option 1</a>
-            <a href = "2">Option 2</a>
-            <a href = "3">Option 3</a>
-        </div>
-    <script>
-    var myMenu = new Menu();
-
-        function myFunction() {
-            document.getElementById("myMenu").classList.toggle("show");
-        }
-        
-        window.onclick = function(event) {
-            if (!event.target.matches('.menubtn')) {
-                var dropdowns = document.getElementsByClassName("menu-content")
-                var x;
-                for (x = 0; x < dropdowns.length; x++) {
-                    var openDropdown = dropdowns[i];
-                    if (openDropdown.classList.contains('show')) {
-                        openDropdown.classList.remove('show');
-                    }
-                }
-            }
-        }</script>
     <script src="week5.js"></script>
-    <script src="week5.css"></script>
 </body>
 </html>
