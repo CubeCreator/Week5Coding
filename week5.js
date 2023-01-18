@@ -48,7 +48,7 @@ class Menu {
     }
     //Display interface and get input for the events
     showMenuOptions() {
-        return prompt (' 0) Exit \n 1) Create New Menu Object \n 2) View Menu \n 3) Delete Object by Index \n 4) Create New Page Element \n 5) Delete Everything');
+        return prompt (' 0) Exit \n 1) Create New Menu Object \n 2) View Menu and Page Elements \n 3) Delete Object by Index \n 4) Create New Page Element \n 5) Delete Everything');
     }
 //Code for Creating New Elements to the Array
     createMenuObject() {
@@ -68,13 +68,14 @@ class Menu {
     viewMenuObject() {
         let menuDisplay = '';
         for (let i = 0; i < this.menulist.length; i++) {
-            console.log("index:",i,"menuDisplay:",menuDisplay);
+            console.log("index:",i,"menuDisplay:",menuDisplay);''
             if (this.menulist[i].size == undefined) {
                 menuDisplay += i + ') ' + this.menulist[i].menuName + ' - ' + this.menulist[i].menuLink + '(Menu Object)' + '\n';
             }
             else {
-                menuDisplay += i + ') ' + this.menulist[i].menuName + ' - ' + this.menulist[i].menuLink + "[Location:" + this.menulist[i].size + "Size:" +this.menulist[i].location + "] " +'(Page Object)' +'\n';
+                menuDisplay += i + ') ' + this.menulist[i].menuName + ' - ' + this.menulist[i].menuLink + "[Location: " + this.menulist[i].size + " Size:" +this.menulist[i].location + "] " +'(Page Object)' +'\n';
             }
+            console.log(menulist[i])
         }
         alert(menuDisplay)
     }
