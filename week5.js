@@ -65,19 +65,25 @@ class Menu {
         this.menulist.push(new PageObject(menuName, menuLink, size, location))
     }
 //Code for Displaying the Entire Array
-    viewMenuObject() {
-        let menuDisplay = '';
-        for (let i = 0; i < this.menulist.length; i++) {
-            console.log("index:",i,"menuDisplay:",menuDisplay);''
-            if (this.menulist[i].size == undefined) {
-                menuDisplay += i + ') ' + this.menulist[i].menuName + ' - ' + this.menulist[i].menuLink + '(Menu Object)' + '\n';
-            }
-            else {
-                menuDisplay += i + ') ' + this.menulist[i].menuName + ' - ' + this.menulist[i].menuLink + "[Location: " + this.menulist[i].size + " Size:" +this.menulist[i].location + "] " +'(Page Object)' +'\n';
-            }
-            console.log(menulist[i])
+viewMenuObject() {
+    let menuDisplay = '';
+    let isMenuObject = false;
+    let isPageObject = false;
+    for (let i = 0; i < this.menulist.length; i++) {
+        //check if the current elements are and instance of the PageObject class
+        if (this.menulist[i] instanceof PageObject) {
+            menuDisplay += i + ') ' + this.menulist[i].menuName + ' - ' + this.menulist[i].menuLink + ' [Size: ' + this.menulist[i].size + ' Location: ' + this.menulist[i].location + ' ] ' + '(Page Object)' + '\n';
+            isPageObject = true;
+        } else if(this.menulist[i] instanceof MenuObject) {
+            menuDisplay += i + ') ' + this.menulist[i].menuName + ' - ' + this.menulist[i].menuLink + ' (Menu Object)' + '\n';
+            isMenuObject = true;
+        } else {
+            menuDisplay += i + ') ' + this.menulist[i] + '\n';
+            
         }
-        alert(menuDisplay)
+    }
+    alert(menuDisplay)
+ 
     }
 //Code for Deleting Elements of the Array by Index Number
     deleteMenuObject() {
